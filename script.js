@@ -151,9 +151,12 @@ function updateItem(id, column) {
 function addToColumn(column) {
   const itemText = addItems[column].textContent;
   const selectedArray = listArrays[column];
-  selectedArray.push(itemText);
-  addItems[column].textContent = '';
-  updateDOM(column);
+
+  if (addItems[column].textContent !== '') {
+    selectedArray.push(itemText);
+    addItems[column].textContent = '';
+    updateDOM(column);
+  }
 }
 
 // Show Add Item Input Box
