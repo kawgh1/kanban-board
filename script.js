@@ -85,6 +85,8 @@ function filterArray(array) {
 
 // Create DOM Elements for each list item
 function createItemEl(columnEl, column, item, index) {
+
+
   // List Item
   const listEl = document.createElement('li');
   listEl.textContent = item;

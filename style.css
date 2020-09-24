@@ -12,6 +12,18 @@ html {
   --column-4: #860c01;
 }
 
+* {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea,
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 body {
   margin: 0;
   background: url("./trees.jpg");
@@ -118,6 +130,7 @@ li.drag-column.backlog-column:hover {
 .custom-scroll {
   overflow-y: auto;
   max-height: 52vh;
+  width: 212px;
 }
 
 .custom-scroll::-webkit-scrollbar-track {
