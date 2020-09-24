@@ -347,6 +347,7 @@ li.drag-column:hover {
     margin: 5px;
     font-size: .8rem;
     padding: 5px;
+    z-index: 10;
   }
 
 .solid {
