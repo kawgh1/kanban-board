@@ -12,17 +12,7 @@ html {
   --column-4: #860c01;
 }
 
-* {
-  -webkit-user-select: none;
-  user-select: none;
-}
 
-input,
-textarea,
-[contenteditable] {
-  -webkit-user-select: text;
-  user-select: text;
-}
 
 body {
   margin: 0;
@@ -387,5 +377,17 @@ li.drag-column:hover {
 
   .add-container {
     width: 900%;
+  }
+
+  /* * {
+    -webkit-user-select: none;
+    user-select: none;
+  } */
+  
+  input,
+  textarea,
+  [contenteditable] {
+    -webkit-user-select: text;
+    user-select: text;
   }
 }

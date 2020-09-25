@@ -53,6 +53,8 @@ let draggedItem;
 let dragging = false;
 let currentColumn;
 
+
+
 // Get Arrays from localStorage if available, set default values if not
 function getSavedColumns() {
   if (localStorage.getItem('backlogItems')) {
@@ -87,6 +89,8 @@ function filterArray(array) {
 function createItemEl(columnEl, column, item, index) {
 
 
+
+
   // List Item
   const listEl = document.createElement('li');
   listEl.textContent = item;
@@ -96,8 +100,14 @@ function createItemEl(columnEl, column, item, index) {
   listEl.setAttribute('onfocusout', `updateItem(${index}, ${column})`);
   listEl.setAttribute('ondragstart', 'drag(event)');
   listEl.contentEditable = true;
+
+
+
+
   // Append
   columnEl.appendChild(listEl);
+
+
 }
 
 // Update Columns in DOM - Reset HTML, Filter Array, Update localStorage
@@ -229,6 +239,9 @@ function drop(e) {
   rebuildArrays();
 }
 
+
 // On Load
 // init();
+
 updateDOM();
+
