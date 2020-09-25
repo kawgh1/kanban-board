@@ -1,32 +1,4 @@
 
-
-
-// // Mobile Drag Functionality using JQuery
-// function touchHandler(event) {
-//   var touch = event.changedTouches[0];
-
-//   var simulatedEvent = document.createEvent("MouseEvent");
-//   simulatedEvent.initMouseEvent({
-//     touchstart: "mousedown",
-//     touchmove: "mousemove",
-//     touchend: "mouseup"
-//   }[event.type], true, true, window, 1,
-//     touch.screenX, touch.screenY,
-//     touch.clientX, touch.clientY, false,
-//     false, false, false, 0, null);
-
-//   touch.target.dispatchEvent(simulatedEvent);
-//   event.preventDefault();
-// }
-
-// function init() {
-//   document.addEventListener("touchstart", touchHandler, true);
-//   document.addEventListener("touchmove", touchHandler, true);
-//   document.addEventListener("touchend", touchHandler, true);
-//   document.addEventListener("touchcancel", touchHandler, true);
-// }
-
-
 const addBtns = document.querySelectorAll('.add-btn:not(.solid)');
 const saveItemBtns = document.querySelectorAll('.solid');
 const addItemContainers = document.querySelectorAll('.add-container');
@@ -88,9 +60,6 @@ function filterArray(array) {
 // Create DOM Elements for each list item
 function createItemEl(columnEl, column, item, index) {
 
-
-
-
   // List Item
   const listEl = document.createElement('li');
   listEl.textContent = item;
@@ -101,13 +70,8 @@ function createItemEl(columnEl, column, item, index) {
   listEl.setAttribute('ondragstart', 'drag(event)');
   listEl.contentEditable = true;
 
-
-
-
   // Append
   columnEl.appendChild(listEl);
-
-
 }
 
 // Update Columns in DOM - Reset HTML, Filter Array, Update localStorage
@@ -188,22 +152,37 @@ function hideInputBox(column) {
 
 // Allows arrays to reflect Drag and Drop items
 function rebuildArrays() {
-  backlogListArray = [];
-  for (let i = 0; i < backlogListEl.children.length; i++) {
-    backlogListArray.push(backlogListEl.children[i].textContent);
-  }
-  progressListArray = [];
-  for (let i = 0; i < progressListEl.children.length; i++) {
-    progressListArray.push(progressListEl.children[i].textContent);
-  }
-  completeListArray = [];
-  for (let i = 0; i < completeListEl.children.length; i++) {
-    completeListArray.push(completeListEl.children[i].textContent);
-  }
-  onHoldListArray = [];
-  for (let i = 0; i < onHoldListEl.children.length; i++) {
-    onHoldListArray.push(onHoldListEl.children[i].textContent);
-  }
+  // Any time you have an empty array and are pushing item onto it 
+  // or changing items in it with a for loop, 
+  // it's a good time to use a map() function
+
+  // Each ListEl.children is not actually an array, it's an HTML Collection
+  // so we have to convert them to an Array first using Array.from(...)
+
+  // backlogListArray = [];
+  // for (let i = 0; i < backlogListEl.children.length; i++) {
+  //   backlogListArray.push(backlogListEl.children[i].textContent);
+  // }
+  backlogListArray = Array.from(backlogListEl.children).map(i => i.textContent);
+
+  // progressListArray = [];
+  // for (let i = 0; i < progressListEl.children.length; i++) {
+  //   progressListArray.push(progressListEl.children[i].textContent);
+  // }
+  progressListArray = Array.from(progressListEl.children).map(i => i.textContent);
+
+  // completeListArray = [];
+  // for (let i = 0; i < completeListEl.children.length; i++) {
+  //   completeListArray.push(completeListEl.children[i].textContent);
+  // }
+  completeListArray = Array.from(completeListEl.children).map(i => i.textContent);
+
+  // onHoldListArray = [];
+  // for (let i = 0; i < onHoldListEl.children.length; i++) {
+  //   onHoldListArray.push(onHoldListEl.children[i].textContent);
+  // }
+  onHoldListArray = Array.from(onHoldListEl.children).map(i => i.textContent);
+
   updateDOM();
 }
 
@@ -241,7 +220,6 @@ function drop(e) {
 
 
 // On Load
-// init();
 
 updateDOM();
 
