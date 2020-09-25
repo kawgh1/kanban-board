@@ -120,7 +120,7 @@ li.drag-column.backlog-column:hover {
 .custom-scroll {
   overflow-y: auto;
   max-height: 52vh;
-  width: 212px;
+  
 }
 
 .custom-scroll::-webkit-scrollbar-track {
@@ -255,6 +255,37 @@ li.drag-column:hover {
   filter: brightness(120%);
 }
 
+.closebtn {
+  
+  color: firebrick;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 10px;
+  margin-left: auto;
+  z-index: 100;
+  background:none;
+  border:none;
+  outline: none;
+}
+
+.closebtn:hover,
+.closebtn:focus {
+  transform: scale(1.1);
+  background:none;
+  border:none;
+  outline: none;
+}
+
+.closebtn:active {
+  transform: scale(.9);
+  background:none;
+  border:none;
+  outline: none;
+}
+
 /* Media Query: Laptop */
 @media screen and (max-width: 1800px) {
   .main-title {
@@ -322,6 +353,7 @@ li.drag-column:hover {
 .custom-scroll {
   overflow-y: auto;
   max-height: 13rem;
+  width: 212px;
 }
 
   .drag-container {

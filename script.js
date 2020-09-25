@@ -57,8 +57,21 @@ function filterArray(array) {
   return filteredArray;
 }
 
+
+
+
 // Create DOM Elements for each list item
 function createItemEl(columnEl, column, item, index) {
+
+  // Since these are dynamically created list items, 
+  // deleting them by clicking a dynamically created button has proved difficult
+  const closeBtn = document.createElement('button');
+
+  closeBtn.style.color = 'red';
+  closeBtn.classList.add('closebtn');
+  closeBtn.classList.add('fas');
+  closeBtn.classList.add('fa-times');
+  closeBtn.id = 'closebtn';
 
   // List Item
   const listEl = document.createElement('li');
@@ -68,11 +81,22 @@ function createItemEl(columnEl, column, item, index) {
   listEl.draggable = true;
   listEl.setAttribute('onfocusout', `updateItem(${index}, ${column})`);
   listEl.setAttribute('ondragstart', 'drag(event)');
+
+  // making content not editable as it seems to interfere too much
+  // with drag and drop functionality, which is the point of this demo
   listEl.contentEditable = true;
 
   // Append
+
+  // append close button only once
+  // if (listEl.children.length < 1) {
+
+  //   listEl.appendChild(closeBtn);
+  // }
+
   columnEl.appendChild(listEl);
 }
+
 
 // Update Columns in DOM - Reset HTML, Filter Array, Update localStorage
 function updateDOM() {
@@ -107,6 +131,8 @@ function updateDOM() {
   // Don't run more than once, Update Local Storage
   updatedOnLoad = true;
   updateSavedColumns();
+
+
 }
 
 // Update Item - Delete if necessary, or update Array value
@@ -218,8 +244,8 @@ function drop(e) {
   rebuildArrays();
 }
 
-
 // On Load
 
 updateDOM();
+
 
