@@ -1,6 +1,8 @@
 /* Trees Image - Pexels: https://www.pexels.com/photo/photo-of-trees-in-forest-3801030/ */
 @import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
 
+
+
 html {
   box-sizing: border-box;
 }
@@ -295,6 +297,9 @@ li.drag-column:hover {
 
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
+
+ 
+
   body {
     overflow-y: auto;
   }
@@ -422,4 +427,8 @@ li.drag-column:hover {
     -webkit-user-select: text;
     user-select: text;
   }
+
+  /* Media Query */
+
+
 }

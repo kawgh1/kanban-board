@@ -174,8 +174,10 @@
 
     <!-- only load DragDropTouch.js if on mobile device - won't work on desktop -->
     <script>
-        if (screen && screen.width < 600) {
-            document.write('<script type="text/javascript" src="DragDropTouch.js"><\script>')
+
+
+        if (document.documentElement.clientWidth < 600) {
+            document.write('<script type="text/javascript" src="DragDropTouch.js"><\script>');
         }
     </script>
 </body>
