@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
 
+    <!-- only load DragDropTouch.js if on mobile device - won't work on desktop -->
+
+    <script>
+
+        if (window.matchMedia("(max-width: 600px)").matches) {
+            let newScript = document.createElement('script');
+            newScript.type = 'text/javascript';
+            newScript.src = 'DragDropTouch.js';
+            document.getElementsByTagName('head')[0].appendChild(newScript);
+        }
+
+    </script>
+
+
 
 </head>
 
@@ -171,7 +185,8 @@
     <!-- Script -->
 
     <script src="script.js"></script>
-    <script src="DragDropTouch.js"></script>
+
+
 
 </body>
 
