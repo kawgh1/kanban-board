@@ -1,5 +1,5 @@
 //  only load DragDropTouch.js if on mobile device - won't work on desktop
-if (window.matchMedia("(min-width: 600px)").matches) {
+if (window.matchMedia("(max-width: 600px)").matches) {
 
     // https://github.com/Bernardo-Castilho/dragdroptouch
 
